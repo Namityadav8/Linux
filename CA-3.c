@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-#include <pthread.h>
+#include<pthread.h>
 #include <string.h>
 
 void *thread(void *arg) {
