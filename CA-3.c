@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <unistd.h>
-#include<pthread.h>
 #include <string.h>
 
 void *thread(void *arg) {
@@ -12,12 +11,12 @@ void *thread(void *arg) {
 int main() {
     pid_t pids[7];
 
-    for (int i = 1; i < 8; i++) {
+    for (int i = 0; i < 7; i++) {
         pids[i] = fork();
         if (pids[i] == 0) {
             printf("p%d - PID: %d, Parent pid: %d\n", i + 1, getpid(), getppid());
 
-            if (i == 6) { 
+            if (i == 5) { 
                 char str[] = "Hi there ! ";
                 pthread_t thread;
                 pthread_create(&thread, NULL, thread, (void *)str);
